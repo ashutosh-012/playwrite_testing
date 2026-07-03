@@ -4,12 +4,15 @@
   "description": "Browser automation testing using Playwright — replacing Selenium.",
   "main": "index.js",
   "scripts": {
-    "test": "playwright test",
-    "test:headed": "playwright test --headed",
+    "test": "playwright test --project=chromium",
+    "test:headed": "cross-env HEADED=true playwright test --project=chromium --headed",
+    "test:headed:login": "cross-env HEADED=true playwright test tests/login.spec.js --project=chromium --headed",
+    "test:headed:register": "cross-env HEADED=true playwright test tests/register.spec.js --project=chromium --headed",
+    "test:headed:employee": "cross-env HEADED=true playwright test tests/employee.spec.js --project=chromium --headed",
     "test:report": "playwright show-report",
-    "test:login": "playwright test tests/login.spec.js",
-    "test:register": "playwright test tests/register.spec.js",
-    "test:employee": "playwright test tests/employee.spec.js"
+    "test:login": "playwright test tests/login.spec.js --project=chromium",
+    "test:register": "playwright test tests/register.spec.js --project=chromium",
+    "test:employee": "playwright test tests/employee.spec.js --project=chromium"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,7 @@
   },
   "homepage": "https://github.com/ashutosh-012/playwrite_testing#readme",
   "devDependencies": {
-    "@playwright/test": "^1.61.1"
+    "@playwright/test": "^1.61.1",
+    "cross-env": "^10.1.0"
   }
 }
