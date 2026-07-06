@@ -93,7 +93,7 @@ export default function Login() {
               data-testid="password-input"
             />
             <button
-              type="button"
+              type="btn"
               className="pw-toggle"
               onClick={() => setShow(s => !s)}
               data-testid="pw-toggle"
@@ -111,7 +111,7 @@ export default function Login() {
 
         <button
           type="submit"
-          className="btn"
+          className="button"
           data-testid="login-btn"
           disabled={!email && !pass}
         >

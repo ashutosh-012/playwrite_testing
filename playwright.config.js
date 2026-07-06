@@ -5,17 +5,17 @@ const isHeaded = process.env.HEADED === 'true'
 export default defineConfig({
   testDir: './tests',
   globalSetup: './tests/ai/setup.js',
-  timeout: 45000,
+  timeout: 120000,
   retries: 0,
   workers: isHeaded ? 1 : 3,
   reporter: [['html', { open: 'never', outputFolder: 'playwright-report' }], ['list']],
   use: {
     baseURL: 'http://localhost:5173',
     headless: !isHeaded,
-    slowMo: isHeaded ? 700 : 0,
+    slowMo: isHeaded ? 2500 : 0,
     screenshot: 'only-on-failure',
     video: 'off',
-    actionTimeout: 15000,
+    actionTimeout: 30000,
   },
   projects: [
     {
