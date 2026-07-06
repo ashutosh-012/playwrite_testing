@@ -12,7 +12,10 @@
     "test:report": "playwright show-report",
     "test:login": "playwright test tests/login.spec.js --project=chromium",
     "test:register": "playwright test tests/register.spec.js --project=chromium",
-    "test:employee": "playwright test tests/employee.spec.js --project=chromium"
+    "test:employee": "playwright test tests/employee.spec.js --project=chromium",
+    "demo:break": "node tests/ai/demo-break.js",
+    "demo:reset": "node tests/ai/demo-reset.js",
+    "ai:generate": "node tests/ai/generate.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +24,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ashutosh-012/playwrite_testing/issues"
   },
@@ -29,5 +32,9 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "groq-sdk": "^1.3.0"
   }
 }

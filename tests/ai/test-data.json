@@ -1,0 +1,67 @@
+{
+  "valid": [
+    {
+      "email": "admin@corp.com",
+      "pass": "Admin@123",
+      "desc": "standard valid credentials"
+    }
+  ],
+  "badEmail": [
+    {
+      "email": "notanemail",
+      "pass": "Admin@123",
+      "desc": "no @ symbol"
+    },
+    {
+      "email": "user@",
+      "pass": "Admin@123",
+      "desc": "missing domain"
+    },
+    {
+      "email": "@domain.com",
+      "pass": "Admin@123",
+      "desc": "no local part"
+    }
+  ],
+  "badPass": [
+    {
+      "email": "admin@corp.com",
+      "pass": "wrongpass",
+      "desc": "wrong password"
+    },
+    {
+      "email": "admin@corp.com",
+      "pass": "123",
+      "desc": "too short"
+    }
+  ],
+  "security": [
+    {
+      "email": "' OR '1'='1",
+      "pass": "anything",
+      "desc": "SQL injection"
+    },
+    {
+      "email": "<script>alert(1)</script>@x.com",
+      "pass": "x",
+      "desc": "XSS attack"
+    },
+    {
+      "email": "admin@corp.com; DROP TABLE users;",
+      "pass": "x",
+      "desc": "SQL drop"
+    }
+  ],
+  "edge": [
+    {
+      "email": "   ",
+      "pass": "Admin@123",
+      "desc": "whitespace only"
+    },
+    {
+      "email": "a@b.c",
+      "pass": "Admin@123",
+      "desc": "minimal valid format but wrong"
+    }
+  ]
+}

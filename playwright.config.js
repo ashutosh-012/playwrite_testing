@@ -4,6 +4,7 @@ const isHeaded = process.env.HEADED === 'true'
 
 export default defineConfig({
   testDir: './tests',
+  globalSetup: './tests/ai/setup.js',
   timeout: 45000,
   retries: 0,
   workers: isHeaded ? 1 : 3,
