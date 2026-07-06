@@ -1,23 +1,21 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const isHeaded = process.env.HEADED === 'true'
-
 export default defineConfig({
   testDir: './tests',
   globalSetup: './tests/ai/setup.js',
-  timeout: 120000,
+  timeout: 300000,
   retries: 0,
-  workers: isHeaded ? 1 : 3,
+  workers: 1,
   reporter: [['html', { open: 'never', outputFolder: 'playwright-report' }], ['list']],
   use: {
     baseURL: 'http://localhost:5173',
-    headless: !isHeaded,
+    headless: false,
     launchOptions: {
-      slowMo: isHeaded ? 1000 : 0,
+      slowMo: 1000, // 1 second per action
     },
     screenshot: 'only-on-failure',
     video: 'off',
-    actionTimeout: 30000,
+    actionTimeout: 60000,
   },
   projects: [
     {
